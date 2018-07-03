@@ -1,4 +1,4 @@
-let data = ['1', '2', '3'];
+let data = [];
 
 module.exports = function(app) {
 
@@ -9,7 +9,10 @@ module.exports = function(app) {
     });
 
     app.post('/', function(req, res) {
-
+        data.push(req.body.todoItem);
+        res.render('index', {
+            todos: data
+        });
     });
 
     app.delete('/', function(req, res) {
