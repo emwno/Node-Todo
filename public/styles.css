@@ -1,0 +1,58 @@
+body {
+	background: #00796B;
+    font-family: helvetica;
+}
+
+input {
+	font-size: 15px;
+	float: left;
+	width: 70%;
+	padding: 25px;
+	color: #FFFFFF;
+	border: 0;
+	background: #00796B;
+}
+
+input::placeholder {
+	color: #BDBDBD;
+}
+
+button {
+	font-size: 15px;
+	font-weight: bold;
+	float: left;
+	width: 30%;
+	cursor: pointer;
+	background: #FFC107;
+	padding: 25px;
+	color: #FFFFFF;
+	border: 0;
+}
+
+#todo-main {
+	position: relative;
+	width: 60%;
+	margin: 0 auto;
+	padding: 25px;
+	background: #009688;
+}
+
+#todos {
+	color: #212121;
+	margin-top: 100px;
+	background: #FFFFFF;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	padding: 20px;
+}
+
+li:hover {
+	background: #EFEFEF;
+}

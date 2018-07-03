@@ -1,0 +1,26 @@
+<html>
+
+    <head>
+        <title>Todooooo it</title>
+        <link href="/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <div id="todo-main">
+            <form method="post">
+                <input type="text" name="todo-item" placeholder="Enter new todo" required />
+                <button type="submit">Add Todo</button>
+            </form>
+            <div id="todos">
+                <ul>
+                    {{#each todos}}
+                        <li>
+                            {{this}}
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>
