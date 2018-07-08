@@ -5,8 +5,10 @@ const timeAgo = require('timeago.js');
 module.exports = function(app, backendless) {
 
     app.get('/', function(req, res) {
+        let dataQueryBuilder = backendless.DataQueryBuilder.create();
+        dataQueryBuilder.setSortBy(['created DESC']);
 
-        Backendless.Data.of(Todo).find()
+        Backendless.Data.of(Todo).find(dataQueryBuilder)
             .then(function(result) {
                 localTodoData = result;
                 res.render('index', {
@@ -28,9 +30,14 @@ module.exports = function(app, backendless) {
 
         backendless.Data.of(Todo).save(todoClass)
             .then(function(obj) {
-                localTodoData.push(obj);
+                localTodoData.unshift(obj);
                 res.render('index', {
-                    todos: localTodoData
+                    todos: localTodoData,
+                    helpers: {
+                        formatTime: function(ms) {
+                            return timeAgo().format(ms);
+                        }
+                    }
                 });
             })
             .catch(function(error) {
