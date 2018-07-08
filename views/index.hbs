@@ -15,7 +15,8 @@
                 <ul>
                     {{#each todos}}
                         <li>
-                            {{this}}
+                            {{this.data}}
+                            <span class="close">{{{formatTime this.created}}}</span>
                         </li>
                     {{/each}}
                 </ul>

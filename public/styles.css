@@ -1,6 +1,6 @@
 body {
 	background: #00796B;
-    font-family: helvetica;
+	font-family: helvetica;
 }
 
 input {
@@ -55,4 +55,10 @@ li {
 
 li:hover {
 	background: #EFEFEF;
+}
+
+.close {
+    font-size: 10px;
+	top: 50%;
+	float: right;
 }

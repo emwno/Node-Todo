@@ -1,5 +1,6 @@
 let localTodoData = [];
 const Todo = require('../model/todo.js');
+const timeAgo = require('timeago.js');
 
 module.exports = function(app, backendless) {
 
@@ -9,7 +10,12 @@ module.exports = function(app, backendless) {
             .then(function(result) {
                 localTodoData = result;
                 res.render('index', {
-                    todos: result
+                    todos: result,
+                    helpers: {
+                        formatTime: function(ms) {
+                            return timeAgo().format(ms);
+                        }
+                    }
                 });
             })
             .catch(function(error) {
