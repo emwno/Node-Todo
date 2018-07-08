@@ -2,8 +2,14 @@ const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const backendless = require('backendless');
 
 const todoController = require('./controllers/todoController');
+
+const APP_ID = 'EF201799-09B6-2EE7-FFC0-169225608F00';
+const API_KEY = 'A75A33AA-35FB-AB4B-FFB2-A5C8571F0A00';
+
+backendless.initApp(APP_ID, API_KEY);
 
 // Setup handlebars
 app.engine('.hbs', exphbs({
@@ -23,7 +29,7 @@ app.use(bodyParser.json());
 app.use(express.static('./public'));
 
 // Setup controllers
-todoController(app);
+todoController(app, backendless);
 
 // Set listener
 app.listen(5000);
