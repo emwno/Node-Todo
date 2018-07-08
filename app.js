@@ -6,6 +6,7 @@ const backendless = require('backendless');
 
 const todoController = require('./controllers/todoController');
 
+// Setup Backendless
 const APP_ID = 'EF201799-09B6-2EE7-FFC0-169225608F00';
 const API_KEY = 'A75A33AA-35FB-AB4B-FFB2-A5C8571F0A00';
 
