@@ -5,6 +5,7 @@ const expsession = require('express-session')
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 
+const loginController = require('./controllers/loginController');
 const todoController = require('./controllers/todoController');
 
 const app = express();
@@ -41,6 +42,7 @@ app.use(express.static('./public'));
 
 // Setup controllers
 todoController(app);
+loginController(app);
 
 // Set listener
 app.listen(5000);

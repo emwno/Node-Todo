@@ -2,9 +2,18 @@ let localTodoData = [];
 const Todo = require('../model/todo.js');
 const timeAgo = require('timeago.js');
 
+function isLoggedIn(req, res, next) {
+    if (!req.session.user_id) {
+        res.redirect('/login');
+    } else {
+        next();
+    }
+}
+
 module.exports = function(app) {
 
-    app.get('/', function(req, res) {
+    app.get('/', isLoggedIn, function(req, res) {
+        console.log(req.session.user_id);
         let dataQueryBuilder = Backendless.DataQueryBuilder.create();
         dataQueryBuilder.setSortBy(['created DESC']);
 
