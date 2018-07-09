@@ -6,20 +6,38 @@
     </head>
 
     <body>
-        <div id="todo-main">
-            <form method="post">
-                <input type="text" name="todoItem" placeholder="Enter new todo" required />
-                <button type="submit">Add Todo</button>
-            </form>
-            <div id="todos">
-                <ul>
-                    {{#each todos}}
-                        <li>
-                            {{this.data}}
-                            <span class="close">{{{formatTime this.created}}}</span>
-                        </li>
-                    {{/each}}
-                </ul>
+        <div id="container">
+            
+            <div id="sidebar">
+                <div id="inner" class="center-h">
+                    <div class="center-h">
+                        <img src="/images/logo-white.png" width="70%"/>
+                        <ul>
+                            <li>
+                                <a href=""><a>Welcome {{user.username}}</a></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="todo-main">
+                <div id="inner">
+                    <form method="post">
+                        <input type="text" name="todoItem" placeholder="Enter new todo" required />
+                        <button type="submit">Add Todo</button>
+                    </form>
+                    <div id="todos">
+                        <ul>
+                            {{#each todos}}
+                                <li>
+                                    {{this.data}}
+                                    <span class="close">{{{formatTime this.created}}}</span>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

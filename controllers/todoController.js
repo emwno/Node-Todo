@@ -13,7 +13,16 @@ function isLoggedIn(req, res, next) {
 module.exports = function(app) {
 
     app.get('/', isLoggedIn, function(req, res) {
-        console.log(req.session.user_id);
+        let currentUserL;
+
+        Backendless.UserService.getCurrentUser()
+            .then(function(currentUser) {
+                currentUserL = currentUser;
+            })
+            .catch(function(error) {
+                console.log('Error: ' + error);
+            });
+
         let dataQueryBuilder = Backendless.DataQueryBuilder.create();
         dataQueryBuilder.setSortBy(['created DESC']);
 
@@ -21,6 +30,7 @@ module.exports = function(app) {
             .then(function(result) {
                 localTodoData = result;
                 res.render('index', {
+                    user: currentUserL,
                     todos: result,
                     helpers: {
                         formatTime: function(ms) {
