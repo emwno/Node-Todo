@@ -36,7 +36,7 @@ input::placeholder {
 #login-main input {
 	width: 100%;
 	padding: 15px;
-    margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 button {
@@ -55,24 +55,22 @@ button {
 	width: 100%;
 	cursor: pointer;
 	padding: 15px;
+    margin-bottom: 5px;
 }
 
 #todo-main {
-	position: relative;
-	width: 60%;
-	margin: 0 auto;
-	padding: 25px;
-	background: #009688;
+	margin-left: 15%;
 }
 
 #login-main {
-	position: relative;
-    top: 35%;
 	width: 25%;
+	position: relative;
+	top: 30%;
 	margin: auto;
-	padding: 25px;
-	background: #009688;
-	overflow: hidden;
+}
+
+#login-main img {
+	padding: 20px;
 }
 
 #todos {
@@ -102,7 +100,15 @@ li:hover {
 }
 
 .error {
-    margin: 0;
-    font-size: 15px;
-    color: red;
+    text-align: center;
+    display: grid;
+	font-size: 15px;
+    padding: 5px;
+    color: #FFFFFF;
+    background: #D32F2F;
+}
+
+.center-h {
+	display: block;
+	margin: auto;
 }
