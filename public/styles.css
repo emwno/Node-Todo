@@ -39,7 +39,7 @@ input::placeholder {
 	margin-bottom: 5px;
 }
 
-button {
+#add-todo-button {
 	font-size: 15px;
 	font-weight: bold;
 	float: left;
@@ -49,6 +49,10 @@ button {
 	padding: 25px;
 	color: #FFFFFF;
 	border: 0;
+}
+
+#add-todo-button:hover {
+    background: #ffca28;
 }
 
 #login-main button {
