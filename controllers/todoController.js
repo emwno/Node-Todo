@@ -38,7 +38,7 @@ module.exports = function(app) {
     });
 
     app.post('/', function(req, res) {
-        let todoClass = new Todo(req.session.currentUser.objectId, req.body.todoItem);
+        let todoClass = new Todo(req.session.currentUser.objectId, req.body.newTodo);
 
         Backendless.Data.of(Todo).save(todoClass)
             .then(function(obj) {

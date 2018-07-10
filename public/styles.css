@@ -55,7 +55,7 @@ button {
 	width: 100%;
 	cursor: pointer;
 	padding: 15px;
-    margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 #todo-main {
@@ -85,30 +85,68 @@ ul {
 	margin: 0;
 }
 
-li {
+#todo-item {
+	margin-left: 10px;
 	padding: 20px;
+	float: left;
+}
+
+#todo-container {
+	/* margin: 0 auto;
+	width: 100%; */
+}
+
+#todo-tag {
+	width: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	float: left;
+}
+
+#todo-time {
+	float: right;
+	padding: 20px;
+	font-size: 10px;
 }
 
 li:hover {
 	background: #EFEFEF;
 }
 
-.close {
-	font-size: 10px;
-	top: 50%;
-	float: right;
-}
-
 .error {
-    text-align: center;
-    display: grid;
+	text-align: center;
+	display: grid;
 	font-size: 15px;
-    padding: 5px;
-    color: #FFFFFF;
-    background: #D32F2F;
+	padding: 5px;
+	color: #FFFFFF;
+	background: #D32F2F;
 }
 
 .center-h {
 	display: block;
 	margin: auto;
+}
+
+.todo-tag-def {
+	background: #DFDFDF;
+}
+
+.todo-tag-red {
+	background: #F44336;
+}
+
+.todo-tag-blue {
+	background: #2196F3;
+}
+
+.todo-tag-green {
+	background: #4CAF50;
+}
+
+.todo-tag-orange {
+	background: #FF9800;
+}
+
+.todo-tag-pink {
+	background: #FF4081;
 }

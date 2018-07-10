@@ -24,15 +24,25 @@
             <div id="todo-main">
                 <div id="inner">
                     <form method="post">
-                        <input type="text" name="todoItem" placeholder="Enter new todo" required />
+                        <input type="text" name="newTodo" placeholder="Enter new todo" required />
                         <button type="submit">Add Todo</button>
                     </form>
                     <div id="todos">
                         <ul>
                             {{#each todos}}
                                 <li>
-                                    {{this.data}}
-                                    <span class="close">{{{formatTime this.created}}}</span>
+                                    <div id="todo-container">
+                                        <div id="todo-tag" {{#if this.tag}} class="todo-tag-{{this.tag}}" {{else}} class="todo-tag-def" {{/if}}>
+                                            &nbsp;
+                                        </div>
+                                        <div id="todo-item">
+                                            {{this.data}}
+                                        </div>
+                                        <div id="todo-time">
+                                            {{{formatTime this.created}}}
+                                        </div>
+                                        <br style="clear: left;" />
+                                    </div>
                                 </li>
                             {{/each}}
                         </ul>
