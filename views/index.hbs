@@ -23,10 +23,12 @@
 
             <div id="todo-main">
                 <div id="inner">
+                    
                     <form method="post">
                         <input type="text" name="newTodo" placeholder="Enter new todo" required />
                         <button class="add-todo-button" type="submit">Add Todo</button>
                     </form>
+
                     <div id="todos">
                         <ul>
                             {{#each todos}}
@@ -47,8 +49,10 @@
                             {{/each}}
                         </ul>
                     </div>
+
                 </div>
             </div>
+
         </div>
     </body>
 
