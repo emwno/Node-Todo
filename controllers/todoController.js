@@ -3,7 +3,7 @@ const Todo = require('../model/todo.js');
 const timeAgo = require('timeago.js');
 
 function isLoggedIn(req, res, next) {
-    if (!req.session.user_id) {
+    if (!req.session.currentUser) {
         res.redirect('/login');
     } else {
         next();
@@ -13,24 +13,17 @@ function isLoggedIn(req, res, next) {
 module.exports = function(app) {
 
     app.get('/', isLoggedIn, function(req, res) {
-        let currentUserL;
 
-        Backendless.UserService.getCurrentUser()
-            .then(function(currentUser) {
-                currentUserL = currentUser;
-            })
-            .catch(function(error) {
-                console.log('Error: ' + error);
-            });
+        let queryBuilder = Backendless.DataQueryBuilder.create()
+            .setWhereClause('ofUser =\'' + req.session.currentUser.objectId + '\'')
+            .setPageSize(50)
+            .setSortBy('created DESC');
 
-        let dataQueryBuilder = Backendless.DataQueryBuilder.create();
-        dataQueryBuilder.setSortBy(['created DESC']);
-
-        Backendless.Data.of(Todo).find(dataQueryBuilder)
+        Backendless.Data.of(Todo).find(queryBuilder)
             .then(function(result) {
                 localTodoData = result;
                 res.render('index', {
-                    user: currentUserL,
+                    user: req.session.currentUser,
                     todos: result,
                     helpers: {
                         formatTime: function(ms) {
@@ -45,7 +38,7 @@ module.exports = function(app) {
     });
 
     app.post('/', function(req, res) {
-        let todoClass = new Todo(req.body.todoItem);
+        let todoClass = new Todo(req.session.currentUser.objectId, req.body.todoItem);
 
         Backendless.Data.of(Todo).save(todoClass)
             .then(function(obj) {

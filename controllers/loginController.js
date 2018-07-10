@@ -8,7 +8,7 @@ module.exports = function(app) {
         Backendless.UserService.login(req.body.username,
                 req.body.password, true)
             .then(function(loggedInUser) {
-                req.session.user_id = loggedInUser.objectId;
+                req.session.currentUser = loggedInUser;
                 res.redirect('/');
             })
             .catch(function(error) {

@@ -1,8 +1,8 @@
 class Todo {
 
-    constructor(data, created) {
+    constructor(ofUser, data) {
+        this.ofUser = ofUser;
         this.data = data;
-        this.created = created;
     }
 
 }
